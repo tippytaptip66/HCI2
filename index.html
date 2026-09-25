@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Punla — Tree Planting Sign-Up</title>
+<title>Punlupa — Tree Planting Sign-Up</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green-700:#1f6b3a;
-  --green-600:#2f9e52;
-  --green-500:#3cb95f;
+  --green-700:#114d25;
+  --green-600:#1a7338;
+  --green-500:#2d954e;
   --cream:#ffffff;
   --mist:#e9efe8;
   --ink:#223022;
@@ -121,7 +121,7 @@ nav{display:flex;gap:6px;}
 /* ---------- mobile nav ---------- */
 .mobile-nav{display:none;gap:6px;overflow-x:auto;padding:0 28px 14px;}
 @media(max-width:700px){ .mobile-nav{display:flex;} }
-.mobile-nav .nav-btn{flex-shrink:0;}
+.mobile-nav .nav-btn{flex-shrink:0;min-height:48px;padding:12px 18px;}
 
 /* ---------- page sections ---------- */
 .page{display:none;}
@@ -151,14 +151,14 @@ section{padding:72px 0;}
 
 .photo{
   border-radius:var(--radius);
-  background:linear-gradient(155deg,#bfe3c8 0%,#6fb87f 45%,#2f7a4a 100%);
+  background:var(--mist);
   position:relative;overflow:hidden;
 }
-.photo::after{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 40%),
-    radial-gradient(circle at 80% 75%, rgba(0,0,0,.15), transparent 45%);
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .hero-photo{height:340px;margin-top:36px;}
 .hero-stats{
@@ -213,7 +213,7 @@ blockquote{
 .faq-item p{font-size:0.95rem;}
 
 /* ---------- signup form ---------- */
-.signup{background:#f0f0f0;color:var(--black);border-radius:calc(var(--radius) + 6px);padding:44px;margin:0 0 80px;}
+.signup{background:#223022;color:#ffffff;border-radius:calc(var(--radius) + 6px);padding:44px;margin:0 0 80px;}
 .signup h2{color:#fff;font-size:clamp(1.6rem,3.4vw,2.2rem);}
 .signup .lede p{color:#c9d3c6;}
 .signup-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;margin-top:36px;}
@@ -233,12 +233,25 @@ blockquote{
 }
 .field textarea{resize:vertical;min-height:80px;}
 .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--green-500);}
+.field input::placeholder, .field select::placeholder, .field textarea::placeholder {
+  color: #a9b8a6;
+  opacity: 1;
+}
+.field select:invalid {
+  color: #a9b8a6;
+}
+.signup, .signup p, .signup label, .signup .contact-line {
+  color: #dbe4d8 !important;
+}
+.signup h2 {
+  color: #ffffff !important;
+}
 .submit-btn{
   width:100%;background:var(--green-600);color:#fff;border:none;border-radius:26px;
   padding:14px;font:inherit;font-weight:700;font-size:0.98rem;cursor:pointer;margin-top:4px;
 }
 .submit-btn:hover{background:var(--green-500);}
-.form-note{font-size:0.78rem;color:#8fa08c;margin-top:10px;}
+.form-note{font-size:0.78rem;color:#b0c0ac;margin-top:10px;}
 .confirm-msg{
   display:none;background:#1c231b;border:1px solid var(--green-500);color:#d8f0d8;
   padding:14px 16px;border-radius:9px;font-size:0.9rem;margin-top:14px;
@@ -286,11 +299,11 @@ footer{
 
 <header>
   <div class="headbar">
-    <div class="logo" id="logoHome" role="button" tabindex="0" aria-label="Punla, go to home page" style="cursor:pointer;">
+    <div class="logo" id="logoHome" role="button" tabindex="0" aria-label="Punlupa, go to home page" style="cursor:pointer;">
       <span class="logo-mark">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22V13M12 13C12 13 5 12 5 5C12 5 12 13 12 13ZM12 13C12 13 19 12 19 5C12 5 12 13 12 13Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
       </span>
-      Punla
+      Punlupa
     </div>
     <nav aria-label="Primary">
       <button class="nav-btn active" data-page="home">Home</button>
@@ -314,12 +327,14 @@ footer{
   <section class="hero">
     <div class="wrap">
       <h1>Plant real trees.<br>With your <span class="accent">block, org, or barkada.</span></h1>
-      <p class="hero-sub">Punla connects Filipino students with tree-planting days across the country — free to join, easy to sign up, and it counts toward your community service hours.</p>
+      <p class="hero-sub">Punlupa connects Filipino students with tree-planting days across the country — free to join, easy to sign up, and it counts toward your community service hours.</p>
       <div class="hero-actions">
         <button class="btn btn-primary" onclick="showPage('contact')">Sign up to plant</button>
         <button class="btn btn-ghost" onclick="showPage('projects')">See past planting sites</button>
       </div>
-      <div class="hero-photo photo"></div>
+      <div class="hero-photo photo">
+        <img src="assets/hands-planting.jpg" alt="Students holding seedlings together" loading="lazy">
+      </div>
       <div class="hero-stats">
         <div class="stat"><b>14,200+</b><span>Seedlings planted</span></div>
         <div class="stat"><b>62</b><span>Planting days held</span></div>
@@ -331,22 +346,28 @@ footer{
   <section>
     <div class="wrap">
       <div class="lede">
-        <h2>Why students join <span class="accent">Punla</span></h2>
+        <h2>Why students join <span class="accent">Punlupa</span></h2>
         <p>No experience needed, no cost to join, and you leave with more than a certificate.</p>
       </div>
       <div class="grid-3" style="margin-top:36px;">
         <div class="card">
-          <div class="photo"></div>
+          <div class="photo">
+            <img src="assets/planting-sapling.png" alt="Person planting a sapling" loading="lazy">
+          </div>
           <h3>Community service hours</h3>
           <p>Every planting day comes with an official certificate your school or org can count toward NSTP or CAS hours.</p>
         </div>
         <div class="card">
-          <div class="photo"></div>
+          <div class="photo">
+            <img src="assets/sprout-hands.png" alt="Hands holding a small sprout" loading="lazy">
+          </div>
           <h3>Beginner-friendly</h3>
           <p>Tools, seedlings, and a quick orientation are provided on-site. You just show up ready to get a little muddy.</p>
         </div>
         <div class="card">
-          <div class="photo"></div>
+          <div class="photo">
+            <img src="assets/man-planting-tree.png" alt="Man planting a tree" loading="lazy">
+          </div>
           <h3>Sites near you</h3>
           <p>We run planting days in Metro Manila, Rizal, Laguna, Cebu, and Davao — pick whichever is easiest to reach.</p>
         </div>
@@ -358,7 +379,7 @@ footer{
     <div class="wrap">
       <div class="quote-photo photo"></div>
       <blockquote>"A tree planted by a student today is shade, clean air, and flood control for the barangay in ten years."</blockquote>
-      <p class="quote-attr">— Liza Fernandez, Founder, Punla</p>
+      <p class="quote-attr">— Liza Fernandez, Founder, Punlupa</p>
     </div>
   </section>
 
@@ -400,7 +421,7 @@ footer{
 <!-- ================= ABOUT ================= -->
 <div id="page-about" class="page" role="region" aria-label="About" hidden>
   <section class="section-tight">
-    <div class="wrap"><h1 style="font-size:clamp(1.8rem,4vw,2.6rem);">About <span class="accent">Punla</span></h1></div>
+    <div class="wrap"><h1 style="font-size:clamp(1.8rem,4vw,2.6rem);">About <span class="accent">Punlupa</span></h1></div>
   </section>
 
   <div class="split-row">
@@ -460,31 +481,51 @@ footer{
   <section class="section-tight">
     <div class="wrap">
       <div class="feature-block">
-        <div class="photo"></div>
+        <div class="photo">
+          <img src="assets/la-mesa-watershed.jpg" alt="La Mesa Watershed" loading="lazy">
+        </div>
         <div class="text-col">
           <h2 style="font-size:1.6rem;">La Mesa Watershed, Quezon City</h2>
           <p style="margin-top:12px;">120 student volunteers planted 2,400 narra and molave seedlings over one weekend, restoring a stretch of degraded buffer zone along the reservoir.</p>
         </div>
       </div>
       <div class="thumb-row">
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
+        <div class="thumb photo">
+          <img src="assets/lamesa-thumb1.png" alt="Lone tree in a field" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/lamesa-thumb2.png" alt="Green texture" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/lamesa-thumb3.png" alt="Plant nursery" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/lamesa-thumb4.png" alt="Green mountain peak" loading="lazy">
+        </div>
       </div>
 
       <div class="feature-block">
-        <div class="photo"></div>
+        <div class="photo">
+          <img src="assets/sierra-madre.jpg" alt="Sierra Madre Buffer Zone" loading="lazy">
+        </div>
         <div class="text-col">
           <h2 style="font-size:1.6rem;">Sierra Madre Buffer Zone, Rizal</h2>
           <p style="margin-top:12px;">A three-month mangrove and upland tree program with three universities, focused on flood mitigation for nearby communities.</p>
         </div>
       </div>
       <div class="thumb-row">
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
-        <div class="thumb photo"></div>
+        <div class="thumb photo">
+          <img src="assets/sierra-thumb1.png" alt="Sierra Madre" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/sierra-thumb2.png" alt="Sierra Madre" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/sierra-thumb3.png" alt="Sierra Madre" loading="lazy">
+        </div>
+        <div class="thumb photo">
+          <img src="assets/sierra-thumb4.png" alt="Sierra Madre" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -493,9 +534,15 @@ footer{
     <div class="wrap">
       <h2>Our volunteers <span class="accent">in action</span></h2>
       <div class="thumb-row" style="grid-template-columns:repeat(3,1fr);margin-top:28px;">
-        <div class="thumb photo" style="height:220px;"></div>
-        <div class="thumb photo" style="height:220px;"></div>
-        <div class="thumb photo" style="height:220px;"></div>
+        <div class="thumb photo" style="height:220px;">
+          <img src="assets/volunteer-1.png" alt="Volunteer planting" loading="lazy">
+        </div>
+        <div class="thumb photo" style="height:220px;">
+          <img src="assets/volunteer-2.png" alt="Volunteer with straw hat" loading="lazy">
+        </div>
+        <div class="thumb photo" style="height:220px;">
+          <img src="assets/volunteer-3.png" alt="Volunteer gathering supplies" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -582,8 +629,8 @@ footer{
               <textarea id="fmsg" placeholder="Group size, accessibility needs, questions..."></textarea>
             </div>
             <div style="display:flex;gap:10px;">
-              <button type="submit" class="submit-btn">Sign me up</button>
-              <button type="button" class="submit-btn" id="resetBtn" style="background:transparent;border:1.5px solid #3a463a;flex:0 0 auto;padding-left:20px;padding-right:20px;">Clear</button>
+              <button type="submit" class="submit-btn" style="flex:1;">Sign me up</button>
+              <button type="button" class="submit-btn" id="resetBtn" style="background:transparent;border:1.5px solid #3a463a;flex:0 0 auto;padding-left:20px;padding-right:20px;width:auto;">Clear</button>
             </div>
             <p class="form-note">Your info is only used to confirm your slot. Never shared, never sold.</p>
             <div class="confirm-msg" id="confirmMsg" role="status">You're on the list! Check your email for site details and what to bring.</div>
@@ -595,11 +642,11 @@ footer{
 </div>
 </main>
 
-<footer>© 2026 Punla. Grown by students, for the Philippines.</footer>
+<footer>© 2026 Punlupa. Grown by students, for the Philippines.</footer>
 
 <script>
 var PAGE_NAMES = {home:'Home', about:'About', projects:'Planting sites', contact:'Sign up and FAQ'};
-var BASE_TITLE = 'Punla';
+var BASE_TITLE = 'Punlupa — Planting days for students';
 
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>{
@@ -614,9 +661,7 @@ function showPage(name){
     b.classList.toggle('active', isActive);
     if(isActive){ b.setAttribute('aria-current','page'); } else { b.removeAttribute('aria-current'); }
   });
-  // Nielsen heuristic 1 (visibility of system status): announce the page change for
-  // screen-reader users, and update the tab title, since this is a single-page app
-  // and the URL never changes.
+  
   document.getElementById('pageAnnounce').textContent = PAGE_NAMES[name] + ' page loaded';
   document.title = PAGE_NAMES[name] + ' — ' + BASE_TITLE;
   window.scrollTo({top:0,behavior:'instant'});
